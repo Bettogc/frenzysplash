@@ -72,7 +72,7 @@ hr     {
                 <img class="imageOffertsAndCupons relacion4-3" ng-src="{{super.photo}}" alt="pollo">
                 <!--*****  NAME OF OFFERTS  *****-->
                 <p class="open_sans overFlowText pageOffertsTitleWithImage">
-                    {{super.name }} - {{super.presentation}}
+                    {{super.name }} 
                 </p>
                 <!--*****  OFFERTS DESCRIPTION  *****-->
                 <div class="ellipsify">
@@ -91,13 +91,14 @@ hr     {
                     <!--*****  ACTUAL PRICE  *****-->
                     <div class="col col-33">
                         <spam class="pageOffertsActualPrice">
-                            {{super.basePrice| currency: 'Q'}}
+                            {{super.promotionalPrice | currency: 'Q'}}
                         </spam>
                     </div>
                     <!--*****   BEFORE PRICE  *****-->
                     <div class="col col-33">
                         <spam class="pageOffertsBeforePrice">
-                            Antes{{super.promotionalPrice | currency: 'Q'}}
+                            
+                            Antes {{super.basePrice| currency: 'Q'}}
                         </spam>
                     </div>
                     <!--*****  ICONS  *****-->
@@ -157,13 +158,14 @@ hr     {
                     <!--*****  ACTUAL PRICE  *****-->
                     <div class="col col-33">
                         <spam class="pageOffertsActualPrice">
-                            {{super.basePrice| currency: 'Q'}}
+                            
+                            {{super.promotionalPrice | currency: 'Q'}}
                         </spam>
                     </div>
                     <!--*****   BEFORE PRICE  *****-->
                     <div class="col col-33">
                         <spam class="pageOffertsBeforePrice">
-                            Antes{{super.promotionalPrice | currency: 'Q'}}
+                            Antes {{super.basePrice| currency: 'Q'}}
                         </spam>
                     </div>
                     <!--*****  ICONS  *****-->

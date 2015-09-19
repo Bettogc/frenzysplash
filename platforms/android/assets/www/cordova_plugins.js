@@ -1,17 +1,24 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "file": "plugins/com.ionic.keyboard/www/keyboard.js",
-        "id": "com.ionic.keyboard.keyboard",
-        "clobbers": [
-            "cordova.plugins.Keyboard"
-        ]
-    },
-    {
         "file": "plugins/com.phonegap.plugins.facebookconnect/facebookConnectPlugin.js",
         "id": "com.phonegap.plugins.facebookconnect.FacebookConnectPlugin",
         "clobbers": [
             "facebookConnectPlugin"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-console/www/logger.js",
+        "id": "cordova-plugin-console.logger",
+        "clobbers": [
+            "cordova.logger"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-console/www/console-via-logger.js",
+        "id": "cordova-plugin-console.console",
+        "clobbers": [
+            "console"
         ]
     },
     {
@@ -99,27 +106,6 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-device-orientation/www/CompassError.js",
-        "id": "cordova-plugin-device-orientation.CompassError",
-        "clobbers": [
-            "CompassError"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-device-orientation/www/CompassHeading.js",
-        "id": "cordova-plugin-device-orientation.CompassHeading",
-        "clobbers": [
-            "CompassHeading"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-device-orientation/www/compass.js",
-        "id": "cordova-plugin-device-orientation.compass",
-        "clobbers": [
-            "navigator.compass"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
         "id": "cordova-plugin-inappbrowser.inappbrowser",
         "clobbers": [
@@ -143,16 +129,14 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.ionic.keyboard": "1.0.4",
     "com.phonegap.plugins.facebookconnect": "0.11.0",
-    "cordova-plugin-console": "1.0.0",
+    "cordova-plugin-console": "1.0.1",
     "cordova-plugin-contacts": "1.1.0",
-    "cordova-plugin-device": "1.0.0",
-    "cordova-plugin-device-motion": "1.1.2-dev",
-    "cordova-plugin-device-orientation": "1.0.1",
+    "cordova-plugin-device": "1.0.1",
+    "cordova-plugin-device-motion": "1.1.1",
     "cordova-plugin-inappbrowser": "1.0.1",
-    "cordova-plugin-splashscreen": "2.0.0",
-    "cordova-plugin-whitelist": "1.0.0"
+    "cordova-plugin-splashscreen": "2.1.0",
+    "cordova-plugin-whitelist": "1.1.0"
 }
 // BOTTOM OF METADATA
 });

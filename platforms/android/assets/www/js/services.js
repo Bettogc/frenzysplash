@@ -1,5 +1,5 @@
 /*******************************************************/
-var List_name = []; /* list name category*/ 
+var List_name = []; /* list name category*/
 var promociones = [];
 var listSupermercado = [];
 var listRestaurantes = [];
@@ -54,23 +54,23 @@ app.factory('Chats', function() {
     face: 'http://upload.wikimedia.org/wikipedia/commons/thumb/8/84/EAN13.svg/220px-EAN13.svg.png',
     producto: "https://quesaber.files.wordpress.com/2013/11/pollo.jpg",
     oferta: "2x1",
-      
+
       terminos: "Terminos y condiciones"
   }, {
     id: 1,
-    icon:'B',  
+    icon:'B',
     name: 'La Torre',
       oferta: "-20%",
     face: 'https://avatars3.githubusercontent.com/u/11214?v=3&s=460'
   },{
     id: 2,
-    icon:'C',  
+    icon:'C',
     name: 'La Torre',
 
     face: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
   ,
 oferta: "Segundo Plato 1/2"
-  
+
   },
     {
     id: 3,
@@ -104,67 +104,13 @@ oferta: "Segundo Plato 1/2"
 
 app.factory('Categorys', function() {
   // Might use a resource here that returns a JSON array
-    
-for (a in promociones) {
-    console.log(promociones.length)
-    var C = promociones.length
-     
-    
-    
-}
-    console.log(IdUsuario)
- // Some fake testing data
+
+  for (a in promociones) {
+    console.log(promociones.length);
+    var C = promociones.length;
+  }  console.log(IdUsuario);
   var categorys = CategoryListName
-      /*[{
-    id: 0,
-    name: List_name[0],
-    cont_promo: C,
-    icon: 'E',
-    color : "icon_supermercado",
-    direc: List_name[0],
-    Facebook: IdUsuario,
-    face: "si"
-}, {
-    id: 1,
-    name:  List_name[1],
-    cont_promo: 'Hey, it\'s me....',
-    icon: 'F',
-      color : "icon_restaurante",
-      direc: List_name[1]
-  },{
-    id: 2,
-    name: List_name[2],
-    cont_promo: 'I should buy a boat',
-      super: "supermercados",
-    icon: 'G',
-      color : "icon_moda",
-      direc: List_name[2]
-  }, {
-    id: 3,
-    name:  List_name[3],
-    cont_promo: 'Look at my mukluks!',
-      super: "supermercados",
-    icon: 'H',
-      color : "icon_entretenimiento",
-      direc: List_name[3]
-  }, {
-    id: 4,
-    name:  List_name[4],
-    cont_promo: 'This is wicked good ice cream.',
-      super: "supermercados",
-    icon: 'I',
-      color : "icon_electronico",
-      direc: List_name[4]
-  }, {
-    id: 5,
-    name:  List_name[5],
-    cont_promo: 'Look at my mukluks!',
-      super: "supermercados",
-    icon: 'J',
-      color : "icon_otro",
-      direc: List_name[4]
-  }];
-*/
+
   return {
     all: function() {
       return categorys;
@@ -183,7 +129,7 @@ for (a in promociones) {
 app.factory('Supermercados', function() {
 
   // Might use a resource here that returns a JSON array
-    
+
   // Some fake testing data
   var supermercados = Super;
 
@@ -200,12 +146,12 @@ app.factory('Supermercados', function() {
       return null;
     }
   };
-})
+});
 
 app.factory('Entretenimiento', function() {
 
   // Might use a resource here that returns a JSON array
-    
+
   // Some fake testing data
   var entretenimiento = Entretenimientos;
 
@@ -222,17 +168,16 @@ app.factory('Entretenimiento', function() {
       return null;
     }
   };
-})
+});
 
 app.factory('Moda', function() {
     for (a in promociones) {
-    console.log(promociones.length)
-    var C = promociones.length
-     console.log(name)
-    
-}
+      console.log(promociones.length);
+      var C = promociones.length;
+      console.log(name);
+    }
   // Might use a resource here that returns a JSON array
-    
+
   // Some fake testing data
   var moda = Modas;
 
@@ -249,12 +194,12 @@ app.factory('Moda', function() {
       return null;
     }
   };
-})
+});
 
 app.factory('Electronicos', function() {
 
   // Might use a resource here that returns a JSON array
-    
+
   // Some fake testing data
   var electronicos = Electronico;
 
@@ -279,10 +224,10 @@ app.factory('Restaurantes', function() {
     console.log(promociones.length)
     var C = promociones.length
      console.log(name)
-    
+
 }*/
   // Might use a resource here that returns a JSON array
-    
+
   // Some fake testing data
   var restaurantes = Restaurantes;
 
@@ -308,98 +253,85 @@ app.factory('Paiz', function() {
     //console.log(paiz);
   return {
     all: function(superId) {
-    
- 
-    
-      
+
     },
     get: function(superId) {
-        ALL = []
-        Category = [];
-         dato = [];
-        IdCategory = superId
-        for (c in PhotoPaiz){
-            // console.log(PhotoPaiz[c].Category)
-            if (superId === PhotoPaiz[c].Category){
-                Category.push(PhotoPaiz[c])
-                
-            }
+      ALL = []
+      Category = [];
+       dato = [];
+      IdCategory = superId;
+      for (c in PhotoPaiz) {
+          // console.log(PhotoPaiz[c].Category)
+          if (superId === PhotoPaiz[c].Category) {
+              Category.push(PhotoPaiz[c]);
+          }
+      }
+      if (Category.length == 0) {
+        Category.push({oferta:"noHay"});
+      }
+      //console.log(Category,"asdasd");
+
+      for (z in InfoShop) {
+        if (superId === InfoShop[z].name){
+          dato.push(InfoShop[z]);
         }
-        if (Category.length == 0){
-            
-                Category.push({oferta:"noHay"})
-           
-        }
-        console.log(Category,"asdasd")
-       
-        for (z in InfoShop){
-            if (superId === InfoShop[z].name){
-                dato.push(InfoShop[z])
-            }
-            
-        }
-     console.log(dato , "s")
-        console.log(Category,"dato")
-        if (PhotoPaiz){
-            ALL.push(Category)
-            ALL.push(dato)
-            console.log(ALL,"all")
-            return ALL;
-        } 
-        
-      return null;
+      }
+    //console.log(dato , "s");
+    //console.log(Category,"dato");
+    if (PhotoPaiz) {
+      ALL.push(Category)
+      ALL.push(dato)
+      //console.log(ALL,"all")
+      return ALL;
+    }
+
+    return null;
     }
   };
 });
 
 app.factory('AllFavorite', function() {
-console.log("called Favorite");
-var favorites = AllFavorite;
-  return {
-    all: function() {
+  console.log("called Favorite");
+  var favorites = AllFavorite;
+    return {
+      all: function() {
         favorites = AllFavorite;
-        console.log("in favorite",favorites);
+        //console.log("in favorite",favorites);
         return favorites;
-    },
-    get: function() {
-
-          return favorites;
-     
-    }
-  };
+      },
+      get: function() {
+        return favorites;
+      }
+    };
 });
 
 app.factory('AllPromotion', function() {
 console.log("called promotion");
-console.log(AllPromotion);
+//console.log(AllPromotion);
 var promotio = AllPromotion;
   return {
     all: function(salvadosId) {
-        promotio = AllPromotion;
-        console.log("in promotion",promotio);
-        
-        return promotio;
-        
+      promotio = AllPromotion;
+      //console.log("in promotion",promotio);
+      return promotio;
     },
     get: function() {
-
-          return promotio;
-     
+      return promotio;
     }
   };
 });
 
 var Barra = []
 app.factory('Barra', function() {
-console.log("called Barra");
-     
-       console.log(IdUsuario)
-       
-       var Barras = {id:98789456};
-    console.log('asdasdasd',Barras)
+  console.log("called Barra");
+
+  console.log(IdUsuario)
+
+  var Barras = {id:98789456};
+  console.log('asdasdasd',Barras)
   return {
     all: function() {
-        
+
         Barras = {id:98789456}
         console.log("in Barra",Barras);
         return Barras;
@@ -407,27 +339,22 @@ console.log("called Barra");
          Barras = {id:98789456}
         console.log("in Barra",Barras);
         return Barras;
-        
-        
     }
-      
   };
-       
-
-    
-
 });
 
- 
- 
-    
+
+
+
 /************************** final tamayo  **************************************************/
 
 /********************************************************/
 
 
 /***************call parse promotion*********************************/
-var promotion = new Parse.Query('Promotion');
+var Promo = Parse.Object.extend('Promotion');
+var promotion = new Parse.Query(Promo);
+
 var customer = new Parse.Query('Customer');
 var favorite = new Parse.Query('Favorite');
 var PromoSave = new Parse.Query('PromotionSaved')
@@ -443,23 +370,24 @@ var query = new Parse.Query('AppCategory');
 //////////////////////////////////////////////////////////////////////////promotion
 promotion = promotion.limit(100);
 customer = customer.limit(100);
-     
+
 ///////////////////////////////////////////////////////////////////////////////////////////Customer
 //query limit hace la llamada de mas elementos
 
 promotion.find({
         success: function(results) {
+          console.log('Promotion query success');
             for (x in results) {
                promociones.push(results[x])
                 listPromoSuper.push(results[x].attributes.Customer)
                 for (i in results[x].attributes.Customer){
                         //console.log(results[x].attributes.Customer[i]);
                         if (true === results[x].attributes.Status){
-                            
+
                             //console.log("esta disponible",results[x].attributes.Status)
                             if (results[x].attributes.Photo === null || results[x].attributes.Photo === undefined){
-                                    
-                                     PhotoPaiz.push({nul:"sin",name:results[x].attributes.CategoryProduct,
+ 
+                                     PhotoPaiz.push({nul:"sin",name:results[x].attributes.Name,
                                                     presentation:results[x].attributes.Presentation,
                                                     description:results[x].attributes.PromotionDescription,
                                                     basePrice:results[x].attributes.BasePrice,
@@ -469,11 +397,11 @@ promotion.find({
                                                      ID:"pinOffertsWithoutImage"+x,IDpromotion: results[x].id
 
                                                                      });
-                                //console.log("iamgen no dispobible")    
+                                //console.log("iamgen no dispobible")
                             }else{
-                               
+
                                    PhotoPaiz.push({nul:"con",photo:results[x].attributes.Photo._url,
-                                                    name:results[x].attributes.CategoryProduct,
+                                                    name:results[x].attributes.Name,
                                                 presentation:results[x].attributes.Presentation,
                                                 description:results[x].attributes.PromotionDescription,
                                                 basePrice:results[x].attributes.BasePrice,
@@ -483,20 +411,22 @@ promotion.find({
                                                 ID:"pinOfferts"+x,IDpromotion: results[x].id
 
                                                                      });
-                            } 
+                            }
 
 
 
                         }
-            
-                              
+
+
                 }
             }
-            console.log(promociones,"promocines")
+            //console.log(promociones,"promocines")
             return PhotoPaiz;
       },
       error: function(myObject, error) {
         // Error occureds
+        console.log('Promotion query error');
+        console.log(myObject);
         console.log( error );
       }
     });
@@ -514,11 +444,11 @@ query.find({
     for ( x in results) {
         List_name.push(results[x].attributes.CategoryName)
         q.equalTo("CategoryApp", results[x].attributes.CategoryName);
-     
+
             var pro = q.find({
                 success: function(results) {
                     for (a in results){
-                        console.log(results[a].attributes.CategoryApp,"resultados")
+                        //console.log(results[a].attributes.CategoryApp,"resultados")
                         CategoryListNameConteo.push({cont:results[a].attributes.CategoryApp})
                     }
                     // console.log(CategoryListNameConteo, "Category cont    ")
@@ -536,16 +466,18 @@ query.find({
             for (w in CategoryListName){
                 for(s in CategoryListNameConteo){
                     if(CategoryListName[w].name == CategoryListNameConteo[s].cont){
-                        console.log("lo encontro",CategoryListName[w].name)
+                       // console.log("lo encontro",CategoryListName[w].name)
                         CategoryListName[w].cont_promo = CategoryListName[w].cont_promo + 1
-                        console.log(    s, "Category names")
+                        // console.log(    s, "Category names")
                     }
                 }
             }
         });
-    
-          
-     
+      
+ 
+
+
+
      // console.log(CategoryListNameConteo, "Category cont  zxzxc  ")
   },
   error: function(myObject, error) {
@@ -595,8 +527,8 @@ function AddPromotions(Array) {
             var CountPromotions = 0;
             listaNameSuperConteo.push(results[x].attributes.Name)
             InfoShop.push({cel:results[x].attributes.PhoneNumber,name:results[x].attributes.Name,url:results[x].attributes.URL,id:"favorite"+x});
-            
-            
+
+
             if (results[x].attributes.Name in Array.Quantities[0]) {
                 CountPromotions =  Array.Quantities[0][results[x].attributes.Name];
                 average = Array.averageSavingscustomer[results[x].attributes.Name];
@@ -604,8 +536,8 @@ function AddPromotions(Array) {
                 CountPromotions = 0;
                 average = 0;
             };
-            
-            
+
+
             if ("Supermercado" ==  results[x].attributes.CategoryApp){
                 name = results[x].attributes.Name;
                 listaNameSuperComparar.push(results[x].attributes.Name);
@@ -615,8 +547,8 @@ function AddPromotions(Array) {
 
                 Super.push({id:x, name: listSupermercado[x], promo: CountPromotions,promedio:average,
                             lastText: "favorite"+x,img_class:listNameSupermercado[x], NameCategory: results[x].attributes.Name});
-                
-              
+
+
 
             }else if("Restaurantes" == results[x].attributes.CategoryApp){
                 name = results[x].attributes.Name;
@@ -633,7 +565,7 @@ Categorys.push({nameCategory:results[x].attributes.Name,ID:"favorite"+x,names:re
                 Categorys.push({nameCategory:results[x].attributes.Name,ID:"favorite"+x,names:results[x].attributes.CategoryApp})
                 Modas.push({id:x,name: listSupermercado[x], promo: CountPromotions,promedio:average,
                             lastText: "favorite"+x,img_class:listNameSupermercado[x], NameCategory: results[x].attributes.Name});
-                
+
             }else if ("Entretenimiento" == results[x].attributes.CategoryApp){
                 name = results[x].attributes.Name;
                 listSupermercado.push(results[x].attributes.Logo._url);
@@ -641,7 +573,7 @@ Categorys.push({nameCategory:results[x].attributes.Name,ID:"favorite"+x,names:re
                 Categorys.push({nameCategory:results[x].attributes.Name,ID:"favorite"+x,names:results[x].attributes.CategoryApp})
                 Entretenimientos.push({id:x,name: listSupermercado[x], promo: CountPromotions,promedio:average,
                                        lastText: "favorite"+x,img_class:listNameSupermercado[x], NameCategory: results[x].attributes.Name});
-            
+
             }else if ("Electrónicos" == results[x].attributes.CategoryApp){
                 name = results[x].attributes.Name;
                 listSupermercado.push(results[x].attributes.Logo._url);
@@ -657,11 +589,11 @@ Categorys.push({nameCategory:results[x].attributes.Name,ID:"favorite"+x,names:re
     });
 };
 function Promotions(id){
-    console.log(":DD",id)
-    console.log(PhotoPaiz)
+    //console.log(":DD",id)
+    //console.log(PhotoPaiz,"photopaiz")
         PromoSave.find({
         success: function(results) {
-          
+
             for (x in results) {
                   //console.log(results[x].attributes)
                   if (results[x].attributes.UserID === IdUsuario){
@@ -669,18 +601,18 @@ function Promotions(id){
                       for (a in results[x].attributes.PromotionID){
                             for (b in PhotoPaiz){
                                 if (results[x].attributes.PromotionID[a] === PhotoPaiz[b].IDpromotion && id === PhotoPaiz[b].Category){
-                                    console.log("Encontrado")
-                                     console.log(PhotoPaiz[b].ID)
-                                     console.log("-----------------")
-                                     console.log( results[x].attributes.PromotionID[a])
+                                    //console.log("Encontrado")
+                                    // console.log(PhotoPaiz[b].ID)
+                                     //console.log("-----------------")
+                                     //console.log( results[x].attributes.PromotionID[a])
                                      var cssColorpinOffer = document.getElementById(PhotoPaiz[b].ID+" "+results[x].attributes.PromotionID[a]).style.color;
-                                          if (cssColorpinOffer=="silver"){
+                                    if (cssColorpinOffer=="silver"){
                                 document.getElementById(PhotoPaiz[b].ID+" "+results[x].attributes.PromotionID[a]).style.color="purple";
                                                }
                                     }
                             }
                       }
-                    
+
                   }
             }
             //console.log(PhotoPaiz)
@@ -696,11 +628,11 @@ var HeartPopover = [];
 function Heart(id){
     favorite.find({
         success: function(results) {
-            
+
             for (x in results) {
                 //console.log(results[x].attributes.CustomerID)
                 //console.log(results[x].attributes.UserID)
-    
+
                     if (results[x].attributes.UserID===IdUsuario){
                        // console.log("find user")
                         for (a in Categorys){
@@ -736,30 +668,25 @@ function Heart(id){
 }
 
 
-function viewFavorite(){
-     AllFavorite = [];
+function viewFavorite() {
+  AllFavorite = [];
   favorite.each(function(results) {
-           
-                for(b in results.attributes.CustomerID){
-                    if(results.attributes.UserID===IdUsuario){
-                        //console.log(results[x].attributes.CustomerID[b])
-                        for (c in PhotoPaiz){
-                            //console.log(PhotoPaiz[c])
-                            if (PhotoPaiz[c].Category === results.attributes.CustomerID[b]){
-                                //console.log("find",results.attributes.CustomerID[b])
-                                AllFavorite.push(PhotoPaiz[c])
-                                //delete AllFavorite[c].Category
-                               
-                                 
-                            }
-                        }
-                    }
 
-                }
-           console.log(AllFavorite, "aqui estoy 2")
+    for(b in results.attributes.CustomerID){
+      if(results.attributes.UserID===IdUsuario){
+          //console.log(results[x].attributes.CustomerID[b])
+        for (c in PhotoPaiz){
+          //console.log(PhotoPaiz[c])
+          if (PhotoPaiz[c].Category === results.attributes.CustomerID[b]){
+              //console.log("find",results.attributes.CustomerID[b])
+              AllFavorite.push(PhotoPaiz[c])
+              //delete AllFavorite[c].Category
+          }
+        }
       }
-    );  
-    
+    }
+   // console.log(AllFavorite, "aqui estoy 2");
+  });
 }
 
 
@@ -768,9 +695,9 @@ function viewPromotion(){
     var con = 0;
     var promotionSavedData = Parse.Object.extend("PromotionSaved");
     var query = new Parse.Query(promotionSavedData);
-    
-    query.equalTo("UserID", IdUsuario);
 
+    query.equalTo("UserID", IdUsuario);
+    console.log("entro")
     query.find({
         success: function(results) {
             for (var i = 0; i < results[0].attributes.PromotionID.length; i++){
@@ -788,14 +715,14 @@ function viewPromotion(){
             console.log(error);
         }
     });
-    
-    
+
+
 }
 
 
 function llamar(cell){
     a = cell.toString();
-    
+
     b = 'tel:'
     window.open(b+a);
 }
@@ -804,18 +731,18 @@ function tiendaUrl(Url){
     window.open(z,'_blank')
 }
 function heartPopover(id){
-    console.log("exitoso", HeartPopover)
+/*    console.log("exitoso", HeartPopover)
     console.log("id",id)
-    console.log(dato)
- 
-    
+    console.log(dato)*/
+
+
     favorite.find({
-        success: function(results) {            
+        success: function(results) {
             for (x in results) {
                 //console.log(results[x].attributes.CustomerID)
-                //console.log(results[x].attributes.UserID)    
+                //console.log(results[x].attributes.UserID)
                 if (results[x].attributes.UserID===IdUsuario){
-                        console.log("find user")   
+                        console.log("find user")
                         for (c in results[x].attributes.CustomerID){
                                for (s in dato){
                                         if (dato[s].name == results[x].attributes.CustomerID[c]){
@@ -825,16 +752,16 @@ function heartPopover(id){
                                                         document.getElementById(dato[s].id).style.color="red";
                                                     }
 
-                                                
+
 
                                         }
                                     }
 
                         }
                 }else{
-                
+
                     console.log("the user no found")
-                }                 
+                }
             }
 
 
@@ -844,19 +771,19 @@ function heartPopover(id){
         console.log( error );
       }
     });
-    
+
     /*
     favorite.find({
-        success: function(results) {            
+        success: function(results) {
             for (x in results) {
                 //console.log(results[x].attributes.CustomerID)
-                //console.log(results[x].attributes.UserID)    
+                //console.log(results[x].attributes.UserID)
                     if (results[x].attributes.UserID===IdUsuario){
-                        console.log("find user")                        
+                        console.log("find user")
                 }else{
-                
+
                     console.log("the user no found")
-                }                 
+                }
             }
 
 
@@ -876,7 +803,7 @@ function SaveFavorite(UserId, CustomerId) {
        'UserID':UserId,
        'CustomerID':CustomerId
    };
-   
+
    Parse.Cloud.run('SaveFavorite', {"Array":result});
 };
 
@@ -887,7 +814,7 @@ function DeleteFavorite(UserId, CustomerId) {
        'UserID':UserId,
        'CustomerID':CustomerId
    };
-   
+
    Parse.Cloud.run('DeleteFavorite', {"Array":result});
 };
 
@@ -898,8 +825,13 @@ function SavePromotion(UserId, PromotionId) {
        'UserID':UserId,
        'PromotionID': PromotionId
    };
+
+   var Savepromotion = Parse.Cloud.run('SavePromotion', {"Array":result});
+    
+    Savepromotion.then(function(){
+      viewPromotion()
+        });
    
-   Parse.Cloud.run('SavePromotion', {"Array":result});
 };
 
 function DeletePromotion(UserId, PromotionId) {
@@ -909,6 +841,11 @@ function DeletePromotion(UserId, PromotionId) {
        'UserID':UserId,
        'PromotionId':PromotionId
    };
-   
-   Parse.Cloud.run('DeletePromotion', {"Array":result});
+
+   var Deletepromotion = Parse.Cloud.run('DeletePromotion', {"Array":result});
+    
+    Deletepromotion.then(function(){
+      viewPromotion()
+        });
+    
 };
