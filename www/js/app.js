@@ -179,17 +179,17 @@ function changeColorPinOffertsWithoutImage(id, IDPromotion) {
     DeletePromotion(IdUsuario, promo)
   }
 };
-/************  TAMAYO FUNCTION CHANCE COLOR HEART FOLLOW **********/
+/************  TAMAYO FUNCTION CHANCE COLOR HEART FOLLOW **************************************************/
 function changeColorHeartFollow(parametro) {
-  var cssColorHeartFollow = document.getElementById("heartFollow").style.color;
+  var cssColorHeartFollow = document.getElementById(parametro).style.color;
   if (cssColorHeartFollow == "silver") {
-    document.getElementById("heartFollow").style.color = "red";
+    document.getElementById(parametro).style.color = "red";
+      SaveFavorite(IdUsuario, parametro)
   } else {
-    document.getElementById("heartFollow").style.color = "silver";
+    document.getElementById(parametro).style.color = "silver";
+      DeleteFavorite(IdUsuario, parametro)
   }
 };
-
-
 
 /************  TAMAYO FUNCTION CHANCE COLOR PIN  SAVED**********/
 function changeColorPinSaved(parametro) {
@@ -409,14 +409,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 .controller('homeCtrl', ['$scope', '$state', function($scope, $state) {
   $scope.logout = function() {
     console.log('Logout');
-    /*
     facebookConnectPlugin.logout(
       function (success) {
         $state.go('login');
       },
       function (failure) { console.log(failure) }
     );
-    */
     Parse.User.logOut();
     $state.go('login');
   };
@@ -447,40 +445,44 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     fbLogged.reject(error);
   };
 
-  $scope.login = function() {
-    console.log('Login');
-    if (!window.cordova) {
-      facebookConnectPlugin.browserInit('426922250825103');
-    }
-    facebookConnectPlugin.login(['email', 'user_birthday'
-    ], fbLoginSuccess, fbLoginError);
+$scope.login = function() {
+   console.log('Login');
+   if (!window.cordova) {
+     facebookConnectPlugin.browserInit('426922250825103');
+   }
+   facebookConnectPlugin.login(['email', 'user_birthday',
+     'user_hometown',
+     'user_location'
+   ], fbLoginSuccess, fbLoginError);
 
-    fbLogged.then(function(authData) {
-        console.log('Promised');
-        return Parse.FacebookUtils.logIn(authData);
-      })
-      .then(function(userObject) {
-        facebookConnectPlugin.api('/me', null,
-          function(response) {
-            console.log(response);
+   fbLogged.then(function(authData) {
+       console.log('Promised');
+       return Parse.FacebookUtils.logIn(authData);
+     })
+     .then(function(userObject) {
+       facebookConnectPlugin.api('me?fields=id,name,birthday,location,hometown,email',
+         function(response) {
+           console.log(response);
 
-            IdUsuario = response.id
-            viewPromotion()
-              //Heart()
+           IdUsuario = response.id
+           viewPromotion()
+             //Heart()
 
-            userObject.set('name', response.name);
-            userObject.set('email', response.email);
-            userObject.set('birthday', response.birthday);
-            userObject.save();
-          },
-          function(error) {
-            console.log(error);
-          }
-        );
+           userObject.set('name', response.name);
+           userObject.set('email', response.email);
+           userObject.set('birthday', response.birthday);  
+           userObject.set('location', response.location);
+           userObject.set('hometown', response.hometown);
+           userObject.save();
+         },
+         function(error) {
+           console.log(error);
+         }
+       );
 
-        $state.go('app.playlists');
-      }, function(error) {
-        console.log(error);
-      });
-  };
+       $state.go('app.playlists');
+     }, function(error) {
+       console.log(error);
+     });
+ };
 }]);
